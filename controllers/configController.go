@@ -4,10 +4,10 @@ import (
 	"github.com/astaxie/beego"
 )
 
-type ControllerController struct {
+type ConfigController struct {
 	beego.Controller
 }
 
-func (c *ControllerController) Get() {
+func (c *ConfigController) Get() {
 	c.TplName = "index.tpl"
 }
