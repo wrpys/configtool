@@ -63,13 +63,13 @@
                         <div class="form-group">
                             <label for="profile" class="col-sm-2 control-label">环境:</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="profile" id="profile"/>
+                                <select class="form-control" name="profile" id="profile"></select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="application" class="col-sm-2 control-label">项目服务名称:</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="application" id="application"/>
+                                <select class="form-control" name="application" id="application"></select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -99,7 +99,7 @@
                         <div class="form-group">
                             <label for="currentProfile" class="col-sm-2 control-label">当前环境:</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="currentProfile" id="currentProfile"/>
+                                <select class="form-control" name="currentProfile" id="currentProfile"></select>
                             </div>
                         </div>
                         <div class="form-group">
