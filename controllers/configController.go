@@ -29,12 +29,22 @@ func (c *ConfigController) GetSearchOptions() {
 }
 
 func (c *ConfigController) List() {
+	logs.Info(TAG, "List")
+	pageInfo, pageErr := BuildPageInfo(c)
+	if pageErr != nil {
+		logs.Error(TAG, pageErr)
+		c.Data["json"] = fail(pageErr.Error())
+		c.ServeJSON()
+	}
 	configProperties := models.ConfigProperties{}
-	if err := c.ParseForm(&configProperties); err != nil {
-		c.Data["json"] = fail(err.Error())
+	formErr := c.ParseForm(&configProperties)
+	if formErr != nil {
+		logs.Error(TAG, formErr)
+		c.Data["json"] = fail(formErr.Error())
 	} else {
-		total, rows := daos.FindConfigProperties(BuildPageInfo(c), configProperties)
+		total, rows := daos.FindConfigProperties(pageInfo, configProperties)
 		c.Data["json"] = map[string]interface{}{"total": total, "rows": rows}
+		logs.Info(TAG, "List", c.Data["json"])
 	}
 	c.ServeJSON()
 }
